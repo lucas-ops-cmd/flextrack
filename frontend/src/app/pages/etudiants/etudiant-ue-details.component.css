@@ -1,0 +1,30 @@
+.selector-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.selector-label {
+  font-weight: bold;
+  color: #34495e;
+  font-size: 1.1rem;
+}
+
+.custom-select {
+  padding: 0.5em 1.5em 0.5em 1em;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  background: #f7f9fb;
+  font-size: 1rem;
+  color: #222;
+  transition: border-color 0.2s;
+  min-width: 240px;
+  outline: none;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+}
+
+.custom-select:focus {
+  border-color: #4681f6;
+  background: #eef5ff;
+}

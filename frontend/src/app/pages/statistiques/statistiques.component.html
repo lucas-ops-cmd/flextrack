@@ -1,0 +1,23 @@
+<div class="statistiques-container">
+  <h2>Statistiques UE</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Nom</th>
+        <th>Inscrits</th>
+        <th>Validés</th>
+        <th>Taux de réussite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of stats">
+        <td>{{ s.code }}</td>
+        <td>{{ s.nom }}</td>
+        <td>{{ s.inscrits }}</td>
+        <td>{{ s.valides }}</td>
+        <td>{{ s.taux }} %</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,39 @@
+<div class="dashboard-container">
+  <h1>Tableau de bord Enseignant</h1>
+  <p class="subtitle">Suivi des UE et des étudiants</p>
+
+  <div class="tabs">
+    <button class="tab-button" [class.active]="selectedTab === 'etudiants'" (click)="selectedTab = 'etudiants'">Étudiants</button>
+    <button class="tab-button" [class.active]="selectedTab === 'ue'" (click)="selectedTab = 'ue'">UE</button>
+    <button class="tab-button" [class.active]="selectedTab === 'inscriptions'" (click)="selectedTab = 'inscriptions'">Inscriptions</button>
+    <button class="tab-button" [class.active]="selectedTab === 'validations'" (click)="selectedTab = 'validations'">Validations</button>
+    <button class="tab-button" [class.active]="selectedTab === 'statistiques'" (click)="selectedTab = 'statistiques'">Statistiques</button>
+  </div>
+
+  <div *ngIf="selectedTab === 'etudiants'" class="etudiant-section">
+  <app-etudiants></app-etudiants>
+</div>
+
+
+
+<div *ngIf="selectedTab === 'ue'">
+  <app-etudiant-ue-details></app-etudiant-ue-details>
+</div>
+
+
+    <div *ngIf="selectedTab === 'inscriptions'">
+  <app-inscriptions></app-inscriptions> <!-- Si composant isolé -->
+</div>
+
+
+    <div *ngIf="selectedTab === 'validations'">
+  <app-validations></app-validations>
+</div>
+
+
+    <div *ngIf="selectedTab === 'statistiques'">
+  <app-statistiques></app-statistiques>
+</div>
+
+  </div>
+

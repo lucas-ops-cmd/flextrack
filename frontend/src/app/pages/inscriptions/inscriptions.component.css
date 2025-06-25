@@ -1,0 +1,101 @@
+/* Style général */
+:host {
+  display: block;
+  padding: 2rem 1rem;
+  max-width: 600px;
+  margin: auto;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Titre */
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+/* Labels et selects */
+label {
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+select {
+  min-width: 230px;
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  border: 1.5px solid #d3d6e4;
+  border-radius: 7px;
+  background: #f9fafe;
+  margin-bottom: 1rem;
+  margin-top: 0.4rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+select:focus {
+  border-color: #5b8ff6;
+}
+
+/* Liste UE */
+ul {
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+li {
+  background: #f4f7ff;
+  margin-bottom: 0.6rem;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.08rem;
+  box-shadow: 0 1px 4px #e4ecf7;
+}
+
+/* Bouton */
+.btn {
+  padding: 0.45rem 1.1rem;
+  background: linear-gradient(90deg, #5b8ff6, #2ec4b6);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn:hover {
+  background: linear-gradient(90deg, #3264d6, #1db096);
+  transform: scale(1.05);
+}
+
+/* Messages */
+.alert {
+  margin-top: 1.3rem;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  font-size: 1.08rem;
+  box-shadow: 0 2px 8px #edf1fa7e;
+  font-weight: 500;
+}
+.alert-success {
+  background: #eaffed;
+  color: #1d7a49;
+  border: 1px solid #38e89c57;
+}
+.alert-danger {
+  background: #fff3f0;
+  color: #c62b0e;
+  border: 1px solid #eeb1a0a3;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  :host { max-width: 99vw; }
+  select { min-width: unset; width: 100%; }
+  li { flex-direction: column; align-items: flex-start; }
+}
+.alert-success { background: #e8fce6; color: #257a2a; }
+.alert-danger { background: #ffd4d4; color: #b30000; }
+.alert-warning { background: #fff7c0; color: #9a7900; }

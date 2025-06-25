@@ -1,0 +1,30 @@
+<h2>Inscrire un étudiant à une UE</h2>
+
+<!-- Sélection de l'étudiant -->
+<label for="etudiant-select">Étudiant :</label>
+<select id="etudiant-select" [(ngModel)]="selectedEtudiant" (change)="onEtudiantChange()">
+  <option [ngValue]="null" disabled selected>-- Choisir un étudiant --</option>
+  <option *ngFor="let e of etudiants" [ngValue]="e.id">
+    {{ e.nom }} {{ e.prenom }} ({{ e.numero_etudiant }})
+  </option>
+</select>
+
+<!-- Affichage des UE -->
+<div *ngIf="selectedEtudiant">
+  <h3>UE disponibles</h3>
+  <ul *ngIf="uesDisponibles.length; else aucuneUE">
+    <li *ngFor="let ue of uesDisponibles">
+  <b>{{ ue.code }}</b> — {{ ue.nom }} ({{ ue.credits }} ECTS)
+  <button (click)="inscrire(ue.code, ue.semestre)" class="btn btn-primary">Inscrire</button>
+</li>
+
+  </ul>
+  <ng-template #aucuneUE>
+    <em>Aucune UE disponible pour cet étudiant (peut-être tous les prérequis ne sont pas validés).</em>
+  </ng-template>
+</div>
+
+<!-- Messages -->
+<div *ngIf="message" class="alert" [ngClass]="{ 'alert-success': messageType==='success', 'alert-danger': messageType==='danger' }">
+  {{ message }}
+</div>

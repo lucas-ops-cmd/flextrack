@@ -1,0 +1,27 @@
+<div class="login-container">
+  <h1>UNIVERSITÉ DE TOULOUSE</h1>
+
+  <form (ngSubmit)="seConnecter()">
+    <input
+      type="text"
+      placeholder="IDENTIFIANT"
+      [(ngModel)]="identifiant"
+      name="identifiant"
+      required
+    />
+
+    <input
+      type="password"
+      placeholder="MOT DE PASSE"
+      [(ngModel)]="motDePasse"
+      name="motDePasse"
+      required
+    />
+
+    <button type="submit">SE CONNECTER</button>
+  </form>
+
+  <p class="info-text">
+    Pour des raisons de sécurité, veuillez vous déconnecter et fermer votre navigateur lorsque vous avez fini d’accéder aux services authentifiés.
+  </p>
+</div>

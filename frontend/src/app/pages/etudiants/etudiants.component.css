@@ -1,0 +1,62 @@
+.etudiant-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.etudiant-form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  flex: 1 1 200px;
+}
+
+.etudiant-form button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.etudiant-form button:hover {
+  background-color: #2563eb;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+th, td {
+  border: 1px solid #eee;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f3f4f6;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+td button {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+td button:hover {
+  background-color: #dc2626;
+}

@@ -1,0 +1,36 @@
+<h2 class="section-title">Gestion des étudiants</h2>
+
+<form class="etudiant-form" (ngSubmit)="ajouter()">
+  <input type="text" [(ngModel)]="etudiant.numero_etudiant" name="numero_etudiant" placeholder="Numéro Étudiant" required />
+  <input type="text" [(ngModel)]="etudiant.nom" name="nom" placeholder="Nom" required />
+  <input type="text" [(ngModel)]="etudiant.prenom" name="prenom" placeholder="Prénom" required />
+  <input type="email" [(ngModel)]="etudiant.email" name="email" placeholder="Email" required />
+  <input type="number" [(ngModel)]="etudiant.id_parcours" name="id_parcours" placeholder="ID Parcours" required />
+  <button type="submit">Ajouter</button>
+  <button type="button" (click)="annuler()">Annuler</button>
+</form>
+
+<table class="etudiant-table">
+  <thead>
+    <tr>
+      <th>Numéro</th>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Email</th>
+      <th>ID Parcours</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of etudiants">
+      <td>{{ e.numero_etudiant }}</td>
+      <td>{{ e.nom }}</td>
+      <td>{{ e.prenom }}</td>
+      <td>{{ e.email }}</td>
+      <td>{{ e.id_parcours }}</td>
+      <td>
+        <button (click)="supprimer(e.id)" class="btn btn-delete">🗑️</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

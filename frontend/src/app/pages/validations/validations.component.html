@@ -1,0 +1,82 @@
+<div class="validation-container">
+  <h2>Validation des parcours</h2>
+
+  <div class="etudiant-select-row">
+    <label for="etudiant-select">Choisir un étudiant :</label>
+    <select id="etudiant-select" (change)="onSelectEtudiant($event)">
+      <option value="">-- Sélectionner --</option>
+      <option *ngFor="let e of etudiants; let i = index" [value]="i">
+        {{ e.nom }} {{ e.prenom }} ({{ e.numero_etudiant }})
+      </option>
+    </select>
+  </div>
+
+  <div *ngIf="selectedEtudiant">
+    <h3>UE à valider</h3>
+    <table class="ue-table">
+      <thead>
+        <tr>
+          <th>UE</th>
+          <th>Semestre</th>
+          <th>Statut</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let insc of inscriptions">
+          <td>{{ insc.ue_code }}</td>
+          <td>S{{ insc.id_semestre }}</td>
+          <td>
+            <span *ngIf="insc.valide === 1" class="statut valide">✔ Validée</span>
+            <span *ngIf="insc.valide === 0" class="statut echec">✘ Échouée</span>
+            <span *ngIf="insc.valide === null" class="statut attente">En attente</span>
+          </td>
+          <td>
+            <button class="btn valider" (click)="validerUE(insc)" [disabled]="insc.valide === 1">Valider</button>
+            <button class="btn echouer" (click)="echouerUE(insc)" [disabled]="insc.valide === 0">Échouer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Statut des validations</h3>
+    <div class="statut-section">
+      <div class="statut-block" *ngFor="let s of semestres">
+        <b>Semestre {{ s }} :</b>
+        <span *ngIf="validationSemestres[s]?.valide" class="statut valide">
+          Validé ({{ validationSemestres[s]?.credits }} crédits)
+        </span>
+        <span *ngIf="!validationSemestres[s]?.valide" class="statut echec">
+          Non validé
+        </span>
+        <span
+          *ngIf="validationSemestres[s]?.ueObligNonValidees?.length"
+          class="statut oblig"
+        >
+          &nbsp;Obligatoires non validées : 
+          <span class="list-oblig">{{ validationSemestres[s]?.ueObligNonValidees.join(', ') }}</span>
+        </span>
+      </div>
+
+      <div class="statut-block" *ngFor="let a of [1,2,3]">
+        <b>Année {{ a }} :</b>
+        <span *ngIf="validationAnnees[a]?.valide" class="statut valide">Validée</span>
+        <span *ngIf="!validationAnnees[a]?.valide" class="statut echec">Non validée</span>
+      </div>
+
+      <div class="statut-block">
+        <b>Diplôme :</b>
+        <span *ngIf="validationDiplome?.valide" class="statut valide">
+          🎓 DIPLOME VALIDE ({{ validationDiplome?.credits }} ECTS)
+        </span>
+        <span *ngIf="!validationDiplome?.valide" class="statut echec">
+          Non validé ({{ validationDiplome?.credits }} ECTS)
+        </span>
+        <span *ngIf="validationDiplome?.ueObligNonValidees?.length" class="statut oblig">
+          &nbsp;Obligatoires non validées :
+          <span class="list-oblig">{{ validationDiplome?.ueObligNonValidees.join(', ') }}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

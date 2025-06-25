@@ -1,0 +1,108 @@
+.validation-container {
+  max-width: 950px;
+  margin: 40px auto 30px auto;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(50, 55, 100, 0.08);
+  padding: 36px 36px 28px 36px;
+}
+
+.etudiant-select-row {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1em;
+}
+
+.ue-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 32px 0;
+  font-size: 1em;
+}
+
+.ue-table th, .ue-table td {
+  border-bottom: 1px solid #eee;
+  padding: 10px 7px;
+  text-align: left;
+}
+
+.ue-table th {
+  background: #f4f7fb;
+  color: #26306b;
+  font-weight: 600;
+}
+
+.ue-table td {
+  background: #fcfcfd;
+}
+
+.btn {
+  border: none;
+  padding: 6px 18px;
+  border-radius: 18px;
+  font-size: 0.98em;
+  cursor: pointer;
+  margin-right: 7px;
+  transition: background 0.17s;
+}
+
+.btn.valider {
+  background: #e6f5ea;
+  color: #199555;
+  border: 1px solid #b4e3cb;
+}
+.btn.valider:hover:not(:disabled) {
+  background: #c7f2db;
+}
+.btn.echouer {
+  background: #ffe9e9;
+  color: #c90000;
+  border: 1px solid #ffd7d7;
+}
+.btn.echouer:hover:not(:disabled) {
+  background: #ffd5d5;
+}
+
+.btn[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.statut-section {
+  margin-top: 8px;
+}
+
+.statut-block {
+  margin-bottom: 7px;
+  font-size: 1.08em;
+}
+
+.statut {
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.statut.valide {
+  color: #199555;
+}
+.statut.echec {
+  color: #d13a3a;
+}
+.statut.attente {
+  color: #c5a100;
+}
+.statut.oblig {
+  color: #c87e15;
+  font-size: 0.98em;
+}
+
+.list-oblig {
+  font-family: "JetBrains Mono", "Fira Mono", "Consolas", monospace;
+  font-size: 0.95em;
+  background: #f4e7d1;
+  padding: 1px 7px;
+  border-radius: 6px;
+  margin-left: 5px;
+}

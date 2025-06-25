@@ -1,0 +1,54 @@
+<h2>Situation d’un étudiant</h2>
+
+<div class="selector-wrapper">
+  <label for="etudiant-select" class="selector-label">Étudiant :</label>
+  <select
+    id="etudiant-select"
+    [(ngModel)]="selectedEtudiant"
+    (change)="onEtudiantChange()"
+    class="custom-select"
+  >
+    <option [ngValue]="null" disabled selected>-- Choisir un étudiant --</option>
+    <option *ngFor="let e of etudiants" [ngValue]="e.id">
+      {{ e.nom }} {{ e.prenom }} ({{ e.numero_etudiant }})
+    </option>
+  </select>
+</div>
+
+
+<div *ngIf="selectedEtudiant">
+  <!-- UE validées -->
+  <h3 style="color: #2e7d32">✅ UE validées</h3>
+  <ul *ngIf="uesValidees.length; else noValidee">
+    <li *ngFor="let ue of uesValidees">
+      <b>{{ ue.code }}</b> — {{ ue.nom }} ({{ ue.credits }} ECTS)
+    </li>
+  </ul>
+  <ng-template #noValidee>
+    <em>Aucune UE validée</em>
+  </ng-template>
+
+  <!-- UE en cours -->
+  <h3 style="color: #fbc02d">⏳ UE en cours</h3>
+  <ul *ngIf="uesEnCours.length; else noCours">
+    <li *ngFor="let ue of uesEnCours">
+      <b>{{ ue.code }}</b> — {{ ue.nom }} ({{ ue.credits }} ECTS)
+    </li>
+  </ul>
+  <ng-template #noCours>
+    <em>Aucune UE en cours</em>
+  </ng-template>
+
+  <!-- UE accessibles (avec prérequis validés) -->
+  <h3 style="color: #1976d2">🟦 UE pour lesquelles les prérequis sont remplis</h3>
+  <ul *ngIf="uesDispo.length; else noDispo">
+    <li *ngFor="let ue of uesDispo">
+      <b>{{ ue.code }}</b> — {{ ue.nom }} ({{ ue.credits }} ECTS)
+    </li>
+  </ul>
+  <ng-template #noDispo>
+    <em>Aucune UE disponible (prérequis non remplis ou déjà validée/inscrite)</em>
+  </ng-template>
+</div>
+
+<div *ngIf="message" class="alert alert-danger">{{ message }}</div>
